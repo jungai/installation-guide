@@ -1,0 +1,86 @@
+---
+name: asdf
+route: /asdf
+menu: Setting
+---
+
+# Asdf
+
+## install via git
+
+```bash
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+```
+
+เพิ่มไปใน .zshrc
+
+```bash
+. $HOME/.asdf/asdf.sh
+```
+
+## เพิ่ม asdf plugin
+
+plugins ที่เราใช้จะมี nodejs, yarn, pnpm
+
+```bash
+asdf plugin add <name>
+```
+
+ตรวจสอบ plugins ที่มีทังหมด
+
+```bash
+asdf plugin list
+```
+
+จะได้
+
+```console
+🐖 asdf plugin list
+nodejs
+pnpm
+yarn
+```
+
+## เพิ่ม version ของ plugin
+
+พอแล้วเพิ่ม plugins แล้วก็เพิ่ม version ของ plugins นั้นๆ `asdf install <plugin_name> <version>`
+
+```bash
+asdf install yarn 1.22.4
+```
+
+จะได้
+
+```console
+🐶 asdf list
+yarn
+  1.22.4
+```
+
+## ตั้งค่า plugin version เป็น global
+
+```
+asdf global yarn 1.22.4
+```
+
+จากนั้นลองพิมพ์
+
+```bash
+yarn -v
+```
+
+จะได้
+
+```console
+~
+🐶 yarn -v
+1.22.4
+```
+
+## By default
+
+asdf นั้นจะอ่านจากไฟล์ที่ชื่อว่า **.tool-versions** ถ้า plugin ที่เราไม่มีหรือ version ที่เรามีไม่ตรงมันจะแจ้งเตือน ให้ install
+
+## Refs
+
+- [asdf](https://asdf-vm.com/#/)
