@@ -1,0 +1,56 @@
+---
+name: Git(ssh)
+route: /git
+menu: Setting
+---
+
+# Git
+
+1. สร้าง ssh key โดยใช้คำสั่ง
+
+```bash
+ssh-keygen -C "name@email.com"
+```
+
+จะขึ้นหน้าตาแบบนี้
+
+```console
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/jungai/.ssh/id_rsa):
+```
+
+ให้ใส่ absolute path ไปยัง .ssh folder จะได้แบบนี้
+
+```console
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/jungai/.ssh/id_rsa): /Users/jungai/.ssh/github
+```
+
+> แนะนำให้ใช้ชื่อตาม git provider
+
+หลังจากสร้าง ssh key เสร็จ หลังจากนั้นตรวจสอบ key และเพิ่มไปใน ssh-agent
+
+```console
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+```
+
+- กรณีใช้ Mac
+
+  สร้างไฟล์ config ใน .ssh
+
+  ```
+  // config
+  Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/github
+  ```
+
+เพิ่มลงไปใน ssh-agent
+
+```bash
+ssh-add -K ~/.ssh/github
+```
+
+เมื่อเสร็จขึ้นตอนข้างบนก็เข้าไปใน git provider เข้าไปใน setting ของ account ตัวเองแล้วเลือกหัวข้อที่เกี่ยวกับ ssh key จากนั้นก็ตั้งชื่อและ copy key จากไฟล์ /Users/jungai/.ssh/github.pub มาใส่ครับ
