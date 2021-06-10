@@ -1,5 +1,5 @@
 ---
-name: Setting Workspace For Mac(m1)
+name: Mac(m1)
 route: /macm1
 menu: Installation
 ---
@@ -8,12 +8,13 @@ menu: Installation
 
 **\*Required**
 
-- homebrew
+- *homebrew
 - iterm2
-- nodejs
-- docker
+- *ohmyz
+- *asdf
+- *docker for mac
 - vscode
-- sequel ace
+- *sequel ace
 
 ## Homebrew
 
@@ -22,6 +23,8 @@ install
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+📌[readmore](https://brew.sh/index_th)
 
 ## iterm2
 
@@ -35,11 +38,30 @@ or direct link
 
 [📌 here](https://iterm2.com/downloads.html)
 
-## Nodejs
+## ohmyz
 
-```bash
-brew install node
+```shell
+brew install zsh
 ```
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+📌[readmore](https://ohmyz.sh/)
+
+
+## asdf
+
+```shell
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+```
+
+```shell
+echo ". $HOME/.asdf/asdf.sh" >> ~/.zshrc
+```
+
+📌[readmore](https://asdf-vm.com/#/)
 
 ## Docker
 
